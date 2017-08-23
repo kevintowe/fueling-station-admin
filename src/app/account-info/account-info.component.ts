@@ -56,16 +56,16 @@ export class AccountInfoComponent implements OnInit {
       // the form was valid.
       // Now we need to save the information to the databse.
 
-      inputCtrl.disable();
-      this.editing = false;
 
-      // this._afDb.object(`users/${this._afAuth.auth.currentUser.uid}`).update({
-      //   schoolName: this.accountInfoForm.value.schoolName
-      // }).then( snapshot => {
 
-      // }, error => {
-      //   console.log('somethings wrong in account info: ' + 'error.name' + error.name + ' | ' + 'error.message: ' + error.message);
-      // })
+      this._afDb.object(`users/${this._afAuth.auth.currentUser.uid}`).update({
+        schoolName: this.accountInfoForm.value.schoolName
+      }).then( snapshot => {
+        inputCtrl.disable();
+        this.editing = false;
+      }, error => {
+        console.log('somethings wrong in account info: ' + 'error.name' + error.name + ' | ' + 'error.message: ' + error.message);
+      })
     }
   }
 
