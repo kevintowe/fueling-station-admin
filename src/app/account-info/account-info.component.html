@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row justify-content-md-center someTopPadding">
+    <div class="col-4">
+        <button *ngIf="!editing"  (click)="edit()" md-raised-button>Edit</button>
+        <button *ngIf="editing" (click)="save()" md-raised-button>Save</button>
+    </div>
+  </div>
+
+<form [formGroup]="accountInfoForm" novalidate>
+  <div class="row justify-content-center someTopPadding ">
+    <div class="col">
+      <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">School name</span>
+          <input type="text" formControlName="schoolName" [value]="currentSchoolName" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+      </div>
+    </div>
+  </div>
+</form>
+</div>

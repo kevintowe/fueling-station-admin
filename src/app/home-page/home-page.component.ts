@@ -1,4 +1,9 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-home-page',
@@ -7,10 +12,12 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
+  homeForm: FormGroup;
+
   public activeTab;
 
   constructor(
-    private renderer2: Renderer2
+
   ) {
 
    }
@@ -19,29 +26,11 @@ export class HomePageComponent implements OnInit {
   
   }
 
-  openHome() {
-    if (this.activeTab === 'home') {
-      return;
-    } else {
-      
-    }
-  }
-
-  openSports() {
-    if (this.activeTab === 'sports') {
-      return;
-    } else {
-      
-    }
-  } 
-
-  openTabs() {
+  saveHomeForm() {
 
   }
 
-  openItems() {
-
-  }
+  
 
 
 

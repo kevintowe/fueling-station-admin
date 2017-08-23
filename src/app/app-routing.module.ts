@@ -12,14 +12,16 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ItemsComponent } from './items/items.component';
 import { SportsComponent } from './sports/sports.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { AccountInfoComponent } from './account-info/account-info.component';
 
  
 const appRoutes: Routes = [
-  { path: 'home', component: HomePageComponent, canActivate:[LoginStatusGuard]},
+  { path: '', component: HomePageComponent, canActivate:[LoginStatusGuard]},
   { path: 'landing', component: LandingPageComponent },
   { path: 'sports', component: SportsComponent },
   { path: 'items', component: ItemsComponent },
   { path: 'tabs', component: TabsComponent },
+  { path: 'account-info', component: AccountInfoComponent },
   { path: '', redirectTo: '/landing', pathMatch: 'full'},
   { path: '**', component: LandingPageComponent }
 ];

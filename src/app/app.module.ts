@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';  // <-- #1 import module
 
-import { MdMenuModule, MdGridListModule, MdInputModule, MdTabsModule, MdProgressSpinnerModule, MdDialogModule } from '@angular/material';
+import { MdMenuModule, MdButtonToggleModule, MdGridListModule, MdInputModule, MdTabsModule, MdProgressSpinnerModule, MdDialogModule } from '@angular/material';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -24,6 +24,7 @@ import { LoginStatusGuard } from './login-status.guard';
 import { SportsComponent } from './sports/sports.component';
 import { ItemsComponent } from './items/items.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { AccountInfoComponent } from './account-info/account-info.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +34,13 @@ import { TabsComponent } from './tabs/tabs.component';
     LoginErrorComponent,
     SportsComponent,
     ItemsComponent,
-    TabsComponent
+    TabsComponent,
+    AccountInfoComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
@@ -48,7 +51,8 @@ import { TabsComponent } from './tabs/tabs.component';
     MdProgressSpinnerModule,
     MdDialogModule,
     MdTabsModule,
-    MdGridListModule
+    MdGridListModule,
+    MdButtonToggleModule
   ],
   entryComponents: [
     LoginErrorComponent

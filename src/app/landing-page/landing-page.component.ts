@@ -70,24 +70,16 @@ export class LandingPageComponent implements OnInit {
 
   onSignup() {
     if (this.signupForm.invalid) {
-      console.log('sign up form was not valid.');
       // invalid form
+      // TODO: maybe notify the user that their email or password was not valid.
     } else {
-      // attempt signup
-      console.log('sign up form valid.');
-
-      console.log('email is: ' + this.signupForm.value);
-      console.dir(this.signupForm.value);
-      
+      // attempt signup      
       this._auth.signUp(this.signupForm.value.email, this.signupForm.value.password).then( user => {
         this.showLoading = false;
-        this._router.navigate(['/home']);
-        console.log('hmmmm');
+        this._router.navigate(['/account-info']);
       }, error => {
         console.log('something didnt work.');
-        
         this.showLoading = false;
-
       })
       this.showLoading = true;
     }
