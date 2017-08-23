@@ -1,7 +1,6 @@
 # FuelingStationAdmin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
-
+Natalie wants an app that they can use for the athletic fueling center. The app is two parts, a 'checkout app' that will be on 1 of 2 ipads in the Fueling Center, and an Admin website, where Natalie and the other athletic peoplels can edit their own configuration of the app. THIS repo is the admin website.
 
 
 TODO: clone this repo, cd into the new folder,$ npm install
