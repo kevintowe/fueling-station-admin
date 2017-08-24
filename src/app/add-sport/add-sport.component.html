@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-sm-12 col-md-6">
+      <form [formGroup]="addSportForm" (submit)="addSport()" novalidate>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">Sport name</span>
+          <input type="text" formControlName="name" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <button type="submit" [disabled]="addSportForm.invalid" md-raised-button>Add sport</button>
+      </form>
+      <md-list>
+        <md-list-item *ngFor="let item of allSports | async" >
+          <h2 md-line>{{ item?.name }}</h2>
+          <p md-line><strong>DB Key</strong></p>
+        </md-list-item>
+      </md-list>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+      <div *ngIf="noItemSelected">
+        <p>Select a sport to view and edit it!</p>
+      </div>
+      <div *ngIf="!noItemSelected">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+          <button type="button" class="btn btn-warning"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Cancel</button>
+          <button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
