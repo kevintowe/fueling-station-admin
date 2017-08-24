@@ -14,11 +14,14 @@ import { SportsComponent } from './sports/sports.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
 
+import { AddSportComponent } from './add-sport/add-sport.component';
+
  
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent, canActivate:[LoginStatusGuard]},
   { path: 'landing', component: LandingPageComponent },
   { path: 'sports', component: SportsComponent },
+  { path: 'add-sport', component: AddSportComponent},
   { path: 'items', component: ItemsComponent },
   { path: 'tabs', component: TabsComponent },
   { path: 'account-info', component: AccountInfoComponent },

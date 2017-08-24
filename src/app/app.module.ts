@@ -2,9 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';  // <-- #1 import module
 
-import { MdMenuModule, MdButtonToggleModule, MdGridListModule, MdInputModule, MdTabsModule, MdProgressSpinnerModule, MdDialogModule } from '@angular/material';
+import { MdMenuModule, MdListModule, MdButtonToggleModule, MdGridListModule, MdInputModule, MdTabsModule, MdProgressSpinnerModule, MdDialogModule } from '@angular/material';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +27,7 @@ import { SportsComponent } from './sports/sports.component';
 import { ItemsComponent } from './items/items.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
+import { AddSportComponent } from './add-sport/add-sport.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { AccountInfoComponent } from './account-info/account-info.component';
     SportsComponent,
     ItemsComponent,
     TabsComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    AddSportComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import { AccountInfoComponent } from './account-info/account-info.component';
     MdDialogModule,
     MdTabsModule,
     MdGridListModule,
-    MdButtonToggleModule
+    MdButtonToggleModule,
+    MdListModule,
+    AngularFontAwesomeModule
   ],
   entryComponents: [
     LoginErrorComponent
