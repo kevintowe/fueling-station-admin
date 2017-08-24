@@ -26,7 +26,7 @@ export class AddSportComponent implements OnInit {
     private _fb: FormBuilder
   ) {
     this.buildAddSportForm();
-    this.noItemSelected = false;;
+    this.noItemSelected = false;
 
     this.allSports = _afDb.list('sports');
   }
