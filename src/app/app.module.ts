@@ -8,6 +8,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 
+import { Ng2FileDropModule }  from 'ng2-file-drop';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -28,6 +30,7 @@ import { ItemsComponent } from './items/items.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
 import { AddSportComponent } from './add-sport/add-sport.component';
+import { AdminEditSportComponent } from './admin-edit-sport/admin-edit-sport.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { AddSportComponent } from './add-sport/add-sport.component';
     ItemsComponent,
     TabsComponent,
     AccountInfoComponent,
-    AddSportComponent
+    AddSportComponent,
+    AdminEditSportComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,8 @@ import { AddSportComponent } from './add-sport/add-sport.component';
     MdGridListModule,
     MdButtonToggleModule,
     MdListModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    Ng2FileDropModule
   ],
   entryComponents: [
     LoginErrorComponent

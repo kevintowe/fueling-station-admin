@@ -13,7 +13,7 @@ import * as firebase from 'firebase/app';
 })
 export class AddSportComponent implements OnInit {
 
-  noItemSelected: boolean;
+  selectedSportId;
 
   addSportForm: FormGroup
 
@@ -26,7 +26,6 @@ export class AddSportComponent implements OnInit {
     private _fb: FormBuilder
   ) {
     this.buildAddSportForm();
-    this.noItemSelected = false;
 
     this.allSports = _afDb.list('sports');
   }
@@ -57,6 +56,11 @@ export class AddSportComponent implements OnInit {
         // tell user there was an error.
       })
     }
+  }
+
+  selectedSport(sport) {
+    // update the selected sport variable
+    this.selectedSportId = sport.$key
   }
 
 }

@@ -19,11 +19,12 @@ import { AddSportComponent } from './add-sport/add-sport.component';
  
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent, canActivate:[LoginStatusGuard]},
-  { path: 'landing', component: LandingPageComponent },
-  { path: 'sports', component: SportsComponent },
-  { path: 'add-sport', component: AddSportComponent},
-  { path: 'items', component: ItemsComponent },
-  { path: 'tabs', component: TabsComponent },
+  { path: 'home', component: HomePageComponent, canActivate:[LoginStatusGuard] },
+  { path: 'landing', component: LandingPageComponent, canActivate:[LoginStatusGuard] },
+  { path: 'sports', component: SportsComponent, canActivate:[LoginStatusGuard] },
+  { path: 'add-sport', component: AddSportComponent, canActivate:[LoginStatusGuard] },
+  { path: 'items', component: ItemsComponent, canActivate:[LoginStatusGuard] },
+  { path: 'tabs', component: TabsComponent, canActivate:[LoginStatusGuard] },
   { path: 'account-info', component: AccountInfoComponent },
   { path: '', redirectTo: '/landing', pathMatch: 'full'},
   { path: '**', component: LandingPageComponent }

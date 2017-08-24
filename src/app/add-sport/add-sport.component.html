@@ -1,44 +1,34 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="row align-items-center">
 
     <div class="col-sm-12 col-md-6">
       <form [formGroup]="addSportForm" (submit)="addSport()" novalidate>
-        <div class="input-group">
+        <div class="input-group topPadding">
           <span class="input-group-addon" id="basic-addon3">Sport name</span>
           <input type="text" formControlName="name" class="form-control" id="basic-url" aria-describedby="basic-addon3">
         </div>
-        <button type="submit" [disabled]="addSportForm.invalid" md-raised-button>Add sport</button>
+        <div class="text-center topPadding">
+          <button type="submit" [disabled]="addSportForm.invalid" md-raised-button>Add sport</button>
+        </div>
       </form>
-      <md-list>
-        <md-list-item *ngFor="let item of allSports | async" >
-          <h2 md-line>{{ item?.name }}</h2>
-        </md-list-item>
-      </md-list>
+      <hr>
+      <div class="setHeight">
+        <ul class="list-group">
+          <div class="text-center">
+            <h1>Sports</h1>
+          </div>
+          <button *ngFor="let sport of allSports | async" (click)="selectedSport(sport)" type="button" class="list-group-item list-group-item-action">
+            <h3>{{ sport?.name }}</h3>
+          </button>
+        </ul>
+      </div>
     </div>
 
-    <div class="col-sm-12 col-md-6">
-      <div *ngIf="noItemSelected">
-        <p>Select a sport to view and edit it!</p>
-      </div>
+    <div class="col-sm-12 col-md-6 topPadding">
 
-      <div *ngIf="!noItemSelected">
-        <div class="row"> 
-          <div class="col">
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
-              <button type="button" class="btn btn-warning"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Cancel</button>
-              <button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
-            </div>
-          </div>
-        </div>
+      <app-admin-edit-sport [sportId]="selectedSportId">
 
-        <div class="row" class="topPadding">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon3">Sport name</span>
-            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-          </div>
-        </div>
-      </div>
+      </app-admin-edit-sport>
 
     </div>
 

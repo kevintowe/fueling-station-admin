@@ -1,3 +1,9 @@
 .topPadding{
     padding-top: 4vh;
 }
+
+.setHeight{
+    height: 80vh;
+    overflow: scroll;
+}
+

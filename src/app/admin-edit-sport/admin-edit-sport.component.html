@@ -1,0 +1,43 @@
+<div *ngIf="!sportSelected" class="top-padding text-center">
+  <p>Select a sport to view and edit it!</p>
+</div>
+
+<div *ngIf="sportSelected">
+  <div class="row"> 
+    <div class="col text-center">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" (click)="saveSport()" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+        <button type="button" (click)="dismissSport()" class="btn btn-warning"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Cancel</button>
+        <button type="button" (click)="deleteSport()" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="editSportForm" novalidate>
+  <div class="row top-padding">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Sport name</span>
+      <input type="text" formControlName="name" [value]="currentSportName" class="form-control" aria-describedby="basic-addon3">
+    </div>
+  </div>
+  <div class="row top-padding">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Image</span>
+      <input type="text" formControlName="imageName" readonly [value]="calculatedImageName" class="form-control" aria-describedby="basic-addon3">
+    </div>
+  </div>
+
+  <div class="row top-padding">
+    <div class="col-8">
+      <div *ngIf="!imageToDisplay" ng2FileDrop class="image-container" (ng2FileDropHoverStart)="dragFileOverStart()" (ng2FileDropHoverEnd)="dragFileOverEnd()"
+      (ng2FileDropFileAccepted)="dragFileAccepted($event)" (ng2FileDropFileRejected)="dragFileRejected($event)" [ng2FileDropMaximumSizeBytes]="maximumFileSizeInBytes">
+        <p>drop image here</p>
+      </div>
+      <div *ngIf="imageToDisplay">
+        <img #sportImageElementRef class="image-contianer" [src]="currentProfileImage">
+        <button type="button" (click)="deleteImage()" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete Image</button>
+      </div>
+    </div>
+  </div>
+
+  </form>
+</div>
