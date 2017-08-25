@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';  // <-- #1 import module
 
-import { MdMenuModule, MdListModule, MdButtonToggleModule, MdGridListModule, MdInputModule, MdTabsModule, MdProgressSpinnerModule, MdDialogModule } from '@angular/material';
+import { MdMenuModule, MdCheckboxModule, MdListModule, MdSelectModule, MdButtonToggleModule, MdGridListModule, MdInputModule, MdTabsModule, MdProgressSpinnerModule, MdDialogModule } from '@angular/material';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -43,7 +43,7 @@ import { AdminEditSportComponent } from './admin-edit-sport/admin-edit-sport.com
     TabsComponent,
     AccountInfoComponent,
     AddSportComponent,
-    AdminEditSportComponent
+    AdminEditSportComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +63,9 @@ import { AdminEditSportComponent } from './admin-edit-sport/admin-edit-sport.com
     MdButtonToggleModule,
     MdListModule,
     AngularFontAwesomeModule,
-    Ng2FileDropModule
+    Ng2FileDropModule,
+    MdSelectModule,
+    MdCheckboxModule
   ],
   entryComponents: [
     LoginErrorComponent

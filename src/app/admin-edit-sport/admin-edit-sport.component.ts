@@ -116,6 +116,8 @@ export class AdminEditSportComponent implements OnInit {
     this.sportSelected = false;
     this.currentSportName = '';
     this.calculatedImageName = '';
+    this.imageToDisplay = false;
+    this.currentProfileImage = '';
     return true;
   }
 
@@ -126,27 +128,31 @@ export class AdminEditSportComponent implements OnInit {
     } else {
       let sportRef$ = this._afDb.object(`sports/${this._sportId}`);
       // start with uploading the image.
+      console.log('imageToDisplay: ' + this.imageToDisplay);
       if (this.imageToDisplay) {
-        console.log('there is an image to display, and were trying to save it');
-        console.log('calculatedImageName: ' + this.calculatedImageName);
-        let storageRef = firebase.storage().ref().child(this.calculatedImageName);
-        console.log('currentProfileImage: ' + this.currentProfileImage);
-        storageRef.putString(this.currentProfileImage, 'data_url').then( snapshot => {
-          console.log('The file was uploaded');
-          // specifiy inside the database that this sport has an image.
-        }, error => {
-          console.log('looks like there was an error');
-        }).then( _ => {
-          console.log('the form value is: ' + this.editSportForm.value.name);
-          sportRef$.update({name: this.currentSportName, hasImage: true});
-        }).then( _ => {
-          this.resetComponent();
-        })
+        this.deleteImage().then( _ => {
+          console.log('there is an image to display, and were trying to save it');
+          console.log('calculatedImageName: ' + this.calculatedImageName);
+          let storageRef = firebase.storage().ref().child(this.calculatedImageName);
+          console.log('currentProfileImage: ' + this.currentProfileImage);
+          storageRef.putString(this.currentProfileImage, 'data_url').then( snapshot => {
+            console.log('The file was uploaded');
+            // specifiy inside the database that this sport has an image.
+          }, error => {
+            console.log('looks like there was an error');
+          }).then( _ => {
+            console.log('the form value is: ' + this.editSportForm.value.name);
+            sportRef$.update({name: this.currentSportName, hasImage: true});
+          }).then( _ => {
+            this.resetComponent();
+          });
+        });
+
       } else {
         // no image, just save the name.
         sportRef$.set({name: this.currentSportName}).then( _ => {
           this.resetComponent();
-        })
+        });
       }
     }
   }
@@ -156,7 +162,7 @@ export class AdminEditSportComponent implements OnInit {
   }
 
   deleteSport() {
-    this._afDb.object(`sports/${this._sportId}`).remove().then( _ => {
+    return this._afDb.object(`sports/${this._sportId}`).remove().then( _ => {
       // if the sport has an image, delete it as well.
       if (this.hasImage){
         firebase.storage().ref().child(`images/${this._sportId}.png`).delete();
@@ -170,7 +176,7 @@ export class AdminEditSportComponent implements OnInit {
     this.calculatedImageName = '';
     // if the image exists in cloud storage, delete it.
     if (this.deleteImage) {
-      firebase.storage().ref().child(`images/${this._sportId}.png`).delete().then( _ => {
+      return firebase.storage().ref().child(`images/${this._sportId}.png`).delete().then( _ => {
         // successfully deleted the image
       }, error => {
         // hmmmm

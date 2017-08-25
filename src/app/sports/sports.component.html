@@ -1,3 +1,36 @@
-<p>
-  sports works!
-</p>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    
+    <div class="col-sm-12 col-sm-6">
+      <form [formGroup]="addSportForm" (submit)="addSport()" novalidate>
+        <div class="row text-center">
+          <md-select placeholder="Select sport" formControlName="sport" class="top-padding" name="food">
+            <md-option *ngFor="let sport of genericSports | async" [value]="sport?.name" >
+              {{ sport?.name }}
+            </md-option>
+          </md-select>
+        </div>
+        <div class="row">
+          <div *ngIf="sportSelected && noMens" class="row top-padding">
+            <md-checkbox formControlName="mens">Men's</md-checkbox>
+          </div>
+        </div>
+        <div class="row">
+          <div *ngIf="sportSelected && noWomens"class="row top-padding">
+            <md-checkbox formControlName="womens">Women's</md-checkbox>
+          </div>
+        </div>
+        <button type="submit" class="top-margin" md-raised-button>
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;
+          Add Sport
+        </button>
+      </form>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+    </div>
+    
+  </div>
+
+  
+</div>

@@ -1,4 +1,3 @@
-import { FirebaseListFactoryOpts } from 'angularfire2/database/interfaces';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -18,6 +17,8 @@ export class AddSportComponent implements OnInit {
   addSportForm: FormGroup
 
   allSports: FirebaseListObservable<any>;
+
+  activeListItem
 
 
   constructor(
