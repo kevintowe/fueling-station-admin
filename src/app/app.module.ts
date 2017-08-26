@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule} from '@angular/forms';  // <-- #1 import module
+import { ReactiveFormsModule,  FormsModule } from '@angular/forms';  // <-- #1 import module
 
 import { MdMenuModule, MdCheckboxModule, MdListModule, MdSelectModule, MdButtonToggleModule, MdGridListModule, MdInputModule, MdTabsModule, MdProgressSpinnerModule, MdDialogModule } from '@angular/material';
 
@@ -26,7 +26,6 @@ import { LoginErrorComponent } from './login-error/login-error.component';
 import { AuthService } from './auth.service';
 import { LoginStatusGuard } from './login-status.guard';
 import { SportsComponent } from './sports/sports.component';
-import { ItemsComponent } from './items/items.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
 import { AddSportComponent } from './add-sport/add-sport.component';
@@ -39,7 +38,6 @@ import { AdminEditSportComponent } from './admin-edit-sport/admin-edit-sport.com
     HomePageComponent,
     LoginErrorComponent,
     SportsComponent,
-    ItemsComponent,
     TabsComponent,
     AccountInfoComponent,
     AddSportComponent,
@@ -53,7 +51,6 @@ import { AdminEditSportComponent } from './admin-edit-sport/admin-edit-sport.com
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     MdMenuModule,
     MdInputModule,
     MdProgressSpinnerModule,
@@ -65,7 +62,8 @@ import { AdminEditSportComponent } from './admin-edit-sport/admin-edit-sport.com
     AngularFontAwesomeModule,
     Ng2FileDropModule,
     MdSelectModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    AppRoutingModule
   ],
   entryComponents: [
     LoginErrorComponent

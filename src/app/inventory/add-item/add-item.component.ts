@@ -1,4 +1,3 @@
-import { error } from 'util';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -56,7 +55,7 @@ export class AddItemComponent {
     // itemNameRef.subscribe( snapshot => {
     //   let value = snapshot.val();
     //   console.log('value is: ' + value);
-    // })
+    // });
     return false;
   }
 
