@@ -60,7 +60,7 @@ import { AdminEditSportComponent } from './admin-edit-sport/admin-edit-sport.com
     MdButtonToggleModule,
     MdListModule,
     AngularFontAwesomeModule,
-    Ng2FileDropModule,
+    // Ng2FileDropModule,
     MdSelectModule,
     MdCheckboxModule,
     AppRoutingModule

@@ -9,9 +9,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { Ng2FileDropModule }  from 'ng2-file-drop';
+
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    
   ],
   declarations: [
 
@@ -19,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports : [
     // https://angular.io/guide/ngmodule#re-exporting-other-modules
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2FileDropModule
   ]
 
 })

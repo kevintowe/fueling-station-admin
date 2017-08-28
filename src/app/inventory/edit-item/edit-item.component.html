@@ -1,3 +1,48 @@
-<p>
-  edit-item works!
-</p>
+<md-spinner *ngIf="isLoading"></md-spinner>
+
+<form *ngIf="itemSelected" [formGroup]="editItemForm" novalidate>
+
+    <div *ngIf="!editing" class="text-center">
+        <h2>Item Info</h2>
+        <button (click)="editItem()" type="button" class="btn btn-info">edit vendor</button>
+    </div>
+
+    <div *ngIf="editing" class="row topPadding"> 
+        <div class="col text-center">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" (click)="save()" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+                <button type="button" (click)="dismiss()" class="btn btn-warning"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Cancel</button>
+                <button type="button" (click)="delete()" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-group topMargin ">
+        <span class="input-group-addon" id="basic-addon3">Item name</span>
+        <input type="text" formControlName="name" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="topMargin">
+        <md-select placeholder="Vendor" formControlName="vendor">
+            <md-option *ngFor="let vendor of vendorList" [value]="vendor.id">
+                {{ vendor.name }}
+            </md-option>
+        </md-select>
+    </div>
+
+
+    <div class="input-group topMargin ">
+        <span class="input-group-addon" id="basic-addon3">Current quantity</span>
+        <input type="text" formControlName="currentQuantity" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+    <div class="input-group topMargin">
+        <span class="input-group-addon" id="basic-addon3">Restocking quantity</span>
+        <input type="text" formControlName="restockingQuantity" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+</form>
+
+<!-- 
+<md-select placeholder="State" [(ngModel)]="myState">
+    <md-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</md-option>
+</md-select> -->

@@ -19,6 +19,7 @@ const appRoutes: Routes = [
   { path: 'sports', component: SportsComponent, canActivate:[LoginStatusGuard] },
   { path: 'add-sport', component: AddSportComponent, canActivate:[LoginStatusGuard] },
   { path: 'inventory', loadChildren: 'app/inventory/inventory.module#InventoryModule' },
+  { path: 'vendors', loadChildren: 'app/vendors/vendors.module#VendorsModule'},
   { path: 'tabs', component: TabsComponent, canActivate:[LoginStatusGuard] },
   { path: 'account-info', component: AccountInfoComponent },
   { path: '', redirectTo: '/landing', pathMatch: 'full'},

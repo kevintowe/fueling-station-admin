@@ -1,0 +1,13 @@
+<ul class="list-group">
+    
+  <!-- title -->
+  <h2 class="text-center">
+    Vendors
+  </h2>
+
+  <!-- all inventory -->
+  <li *ngFor="let item of vendors$ | async" (click)="onSelectedVendor(item?.$key)" class="list-group-item">
+    {{ item?.name }}
+  </li>
+
+</ul>

@@ -1,0 +1,14 @@
+<div *ngIf="itemSelected" class="topPadding">
+  <div class="row top-padding">
+    <div class="col-8">
+      <div *ngIf="!imageToDisplay" ng2FileDrop class="image-container" (ng2FileDropHoverStart)="dragFileOverStart()" (ng2FileDropHoverEnd)="dragFileOverEnd()"
+        (ng2FileDropFileAccepted)="dragFileAccepted($event)" (ng2FileDropFileRejected)="dragFileRejected($event)">
+        <p>drop image here</p>
+      </div>
+      <div *ngIf="imageToDisplay">
+        <img class="image-contianer" [src]="currentImage">
+        <button type="button" (click)="deleteImage()" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete Image</button>
+      </div>
+    </div>
+  </div>
+</div>
