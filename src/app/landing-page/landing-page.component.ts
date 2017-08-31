@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { LoginErrorComponent } from '../login-error/login-error.component';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent {
 
   loginForm: FormGroup;
   signupForm: FormGroup;
@@ -83,9 +83,6 @@ export class LandingPageComponent implements OnInit {
       })
       this.showLoading = true;
     }
-  }
-
-  ngOnInit() {
   }
 
 }

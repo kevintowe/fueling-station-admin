@@ -21,8 +21,8 @@ import { Ng2FileDropModule }  from 'ng2-file-drop';
 @NgModule({
   imports: [
     SharedModule,
-    InventoryRoutingModule,
     AngularMaterialModule,
+    InventoryRoutingModule,
     // Ng2FileDropModule
     // MdProgressSpinnerModule
   ],

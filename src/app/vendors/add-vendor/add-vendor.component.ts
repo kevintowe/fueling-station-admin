@@ -57,8 +57,8 @@ export class AddVendorComponent {
         equalTo: name
       }
     }).subscribe( value => {
-      console.log('value of value is: ' + value);
-      console.dir(value);
+      // console.log('value of value is: ' + value);
+      // console.dir(value);
     })
 
     return false;

@@ -16,9 +16,6 @@ import { Ng2FileDropModule }  from 'ng2-file-drop';
     CommonModule,
     
   ],
-  declarations: [
-
-  ],
   exports : [
     // https://angular.io/guide/ngmodule#re-exporting-other-modules
     CommonModule,

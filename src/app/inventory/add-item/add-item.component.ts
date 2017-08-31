@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
-import * as firebase from 'firebase/app';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-add-item',
@@ -16,7 +14,6 @@ export class AddItemComponent {
   
   constructor(
     private _afDb: AngularFireDatabase,
-    private _afAuth: AngularFireAuth,
     private _fb: FormBuilder
   ) {
     this.buildNewItemForm();

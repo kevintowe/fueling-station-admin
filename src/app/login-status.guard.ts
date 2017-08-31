@@ -1,4 +1,4 @@
-import { Injectable, PACKAGE_ROOT_URL } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
@@ -13,20 +13,17 @@ export class LoginStatusGuard implements CanActivate {
 
   constructor(
     private _afAuth: AngularFireAuth
-  ) {
-    console.log('we ran.');
-    
-    
+  ) {    
   }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       var authStatus = this.authListener.map( user => {
         if (user) {
-          console.log('user was true;');
+          // console.log('user was true;');
           return true;
         } else {
-          console.log('user was false');
+          // console.log('user was false');
           return false;
         }
       });

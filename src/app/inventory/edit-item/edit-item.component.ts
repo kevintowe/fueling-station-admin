@@ -16,8 +16,8 @@ export class EditItemComponent {
 
   public vendorList: any = [];
 
-  public isLoading: boolean;
   public itemSelected: boolean;
+  public isLoading: boolean;
   public editing: boolean;
 
   // define the formGroup
@@ -35,7 +35,6 @@ export class EditItemComponent {
     this.buildEditItemForm();
 
     this.vendorList = this._inventoryService.vendorList;
-    console.log('vendor list' + this.vendorList);
 
     this._inventoryService.itemInfoLoading$.subscribe( value => {
       this.itemSelected = value;
@@ -47,8 +46,6 @@ export class EditItemComponent {
       let value = snapshot.val();
       this.isLoading = false;
       this.editItemForm.disable();
-      console.log('vendor list' + this.vendorList);
-      console.dir(this.vendorList);
 
       this.currentItemId = snapshot.key;
       
@@ -116,7 +113,7 @@ export class EditItemComponent {
 
 
   delete() {
-    this._afDb.object(`inventoryItems/${this.editItemForm}`).remove().then( snapshot => {
+    this._afDb.object(`inventoryItems/${this.currentItemId}`).remove().then( snapshot => {
       this.editing = false;
       this.editItemForm.disable();
     });

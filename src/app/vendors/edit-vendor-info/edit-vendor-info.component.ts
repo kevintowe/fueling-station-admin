@@ -47,12 +47,11 @@ export class EditVendorInfoComponent {
       this.editVendorForm.disable();
 
       this.currentVendorId = snapshot.key;
-      console.log(snapshot.key);
 
       this.editVendorForm.controls['name'].setValue(value.name);
       this.editVendorForm.controls['email'].setValue(value.email);
       this.editVendorForm.controls['phoneNumber'].setValue(value.phoneNumber);
-      this.editVendorForm.controls['vendor'].setValue(value.vendor);
+      this.editVendorForm.controls['website'].setValue(value.website);
     });
   }
 
@@ -64,10 +63,10 @@ export class EditVendorInfoComponent {
 
   buildEditVendorForm() {
     this.editVendorForm = this._fb.group({
-      name: [Validators.required],
-      email: [],
-      phoneNumber: [],
-      website: [],
+      name: ['',Validators.required],
+      email: [''],
+      phoneNumber: [''],
+      website: [''],
     });
   }
 
@@ -97,6 +96,9 @@ export class EditVendorInfoComponent {
         this._afDb.object(`vendors/${this.currentVendorId}`).update(toWrite);
 
         // TODO, re format the above flow so that these two actions run once all possible database wrties have finished.
+        this.editing = false;
+        this.editVendorForm.disable();
+      } else {
         this.editing = false;
         this.editVendorForm.disable();
       }

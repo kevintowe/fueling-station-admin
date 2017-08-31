@@ -55,7 +55,9 @@ export class VendorService {
   fetchItemSnapshot(vendorPushId: string) {
     let itemRef$ = this._afDb.object(`vendors/${vendorPushId}`, {preserveSnapshot: true});
     itemRef$.map( snapshot => {
-      this._currentVendor.next(snapshot);
+      if( snapshot.val() != null) {
+        this._currentVendor.next(snapshot);
+      }
     }).subscribe();
   }
 
